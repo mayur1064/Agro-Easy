@@ -105,7 +105,7 @@ module.exports.payOrder =  async (req, res) => {
       params['ORDER_ID'] = 'TEST_'  + new Date().getTime();
       params['CUST_ID'] = paymentDetails.customerId;
       params['TXN_AMOUNT'] = paymentDetails.amount;
-      params['CALLBACK_URL'] = `https://agroeaasy.herokuapp.com//payment/callback/${order._id}/${product._id}`;
+      params['CALLBACK_URL'] = `https://agroeaasy.herokuapp.com/payment/callback/${order._id}/${product._id}`;
       params['EMAIL'] = paymentDetails.customerEmail;
       params['MOBILE_NO'] = paymentDetails.customerPhone;
   
