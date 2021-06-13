@@ -26,7 +26,7 @@ const paymentRoutes = require("./routes/payment");
 
 
 
-const dbUrl = process.DB_URL || 'mongodb://localhost:27017/agro-app'
+const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/agro-app'
 
 
 mongoose.connect(dbUrl, {
@@ -91,7 +91,6 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.use((req, res, next) => {
-  //console.log(req.session)
   res.locals.currentUser = req.user;
   res.locals.success = req.flash("success");
   res.locals.error = req.flash("error");
