@@ -249,7 +249,7 @@ module.exports.showAllOrders = async (req, res) => {
     const id = req.user._id;
     const orders = await Order.find({farmer:id , status : {$in: ['not out for delivery', 'out for delivery','cancelled by supplier','not accepted','accepted']}}).populate('supplier').populate('product');
 
-    res.render('farmers/allOrders', { orders })
+    res.render('farmers/allorders', { orders })
 
 }
 
