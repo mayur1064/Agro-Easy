@@ -1,0 +1,73 @@
+@import "bootstrap/functions";
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+
+
+.review-scroll {
+  height: 40vh;
+  overflow-y: scroll;
+}
+
+.review-scroll-supplier {
+  max-height: 50vh;
+  overflow-y: scroll;
+}
+
+.prodImg {
+  display: block;
+  margin: auto;
+  height: 63vh;
+  width: 80vh;
+  object-fit: cover;
+}
+
+.row.no-gutter {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.row.no-gutter [class*="col-"]:not(:first-child),
+.row.no-gutter [class*="col-"]:not(:last-child) {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.goog-te-banner-frame{
+  visibility:hidden !important;
+  }
+  
+  #body-main{
+  top:0px !important;
+  }
+
+  
+  .product-img img {
+    width: auto;
+    max-height: 600px;
+  }
+
+  
+#map {
+
+  height:350px;
+  border-radius: 20px;
+
+}
+
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 15px;
+  }
+  ::-webkit-scrollbar-track-piece  {
+  background-color: #C2D2E4;
+  }
+  ::-webkit-scrollbar-thumb:vertical {
+  height: 30px;
+  background-color: #00b359;
+  -webkit-border-radius: 1ex;
+  }
+  
+
+
+  

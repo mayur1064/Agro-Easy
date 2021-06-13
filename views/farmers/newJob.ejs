@@ -1,0 +1,99 @@
+<% layout('layouts/boilerplate')%>
+<div class="row ">
+    <h2 class="text-center">Create a Job! Find Skilled Workers Near you</h2>
+    <div class="col-md-6 offset-md-3  mb-3">
+        <form action="/farmer/jobs" method="POST" >
+            <div class="mb-3">
+                <label class="form-label" for="name">Job Name</label>
+                <input class="form-control" type="text" id="name" name="job[name]" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="price">Wage / day</label>
+                <div class="input-group">
+                    <span class="input-group-text" id="price-label"><span>&#8377;</span></span>
+                    <input type="number" class="form-control" id="price" placeholder="0.00" aria-label="price"
+                        aria-describedby="price-label" name="job[wage]" required>
+                </div>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="quantity">Number of Workers</label>
+                <div class="input-group">
+                    <span class="input-group-text" id="price-label">N</span>
+                    <input type="number" class="form-control" id="quantity" placeholder="0" aria-label="quantity"
+                        aria-describedby="quantity-label" name="job[quantity]" required>
+                </div>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="gender">Gender Requirements</label>
+                <select class="form-select" name="job[gender]" aria-label="Gender">
+                    <option selected>Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Any">Any</option>
+                </select>
+            </div>
+    
+            <div class="mb-3">
+                <label class="form-label" for="description">Job Description</label>
+                <textarea class="form-control" type="text" id="description" name="job[description]" required></textarea>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="address">Address</label>
+                <input class="form-control" type="text" id="address" name="job[address]" value="<%=farmer.address%>" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="name">City/Village</label>
+                <input class="form-control" type="text" id="city" name="job[city]" value="<%=farmer.city%>" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+
+    
+            <div class="mb-3">
+                <label class="form-label" for="skill">Skill Requirements</label>
+                <input class="form-control" type="text" id="skill">
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+    
+            <div class="mb-3">
+                <button class="btn btn-info" id="btnSkill1" onclick="addSkill();" type="button">Add Skill</button>
+            </div>
+    
+        
+            <input class="form-control d-none" type="text" id="skillFinal" name="job[skills]">
+              
+    
+            <div class="mb-3" id="allSkills"></div>
+    
+
+            
+            <div class="mb-3">
+                <button class="btn btn-success" onclick="collectSkill();" >Create Job</button>
+            </div>
+        </form>
+      
+    </div>
+</div>

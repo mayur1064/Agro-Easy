@@ -1,0 +1,47 @@
+<% layout('layouts/boilerplate')%>
+
+<a href="/worker" class="btn btn-success mr-3 mb-3">&#x2B9C; Back</a>
+
+<h1 class="text-center">Your Work Applications</h1>
+
+<% for (let application of applications){%>
+<div
+  class="card mb-3 border-0 grey-light grey-dark shadow mb-3 p-3"
+  style="border-radius: 15px"
+>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="card-title"><%= application.job.name %></h3>
+
+      <% let skills = application.job.skills.split(",").slice(0,-1); %> <%for
+      (let skill of skills) { %>
+      <p class="btn btn-warning"><b><%= skill %></b></p>
+
+      <% } %>
+      <h5><%= application.status.toUpperCase() %></h5>
+    </div>
+    <div class="col-md-6">
+      <div class="card-body">
+        <p class="card-text">
+          <%= application.job.description.substr(0,100) %>
+        </p>
+
+        <div class="d-flex flex-row">
+          <p class="btn btn-info mr-3"><%= application.job.gender %></p>
+          <h4 class="card-text mr-5 text-success">
+            <span>&#8377;</span><%= application.job.wage %>/day
+          </h4>
+
+          <h4 class="card-text mr-3"><%= application.job.city %></h4>
+        </div>
+
+        <a
+          href="/worker/jobs/<%=application.job._id%>"
+          class="btn btn-primary mr-3"
+          >Show Job</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+<% }%>

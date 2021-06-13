@@ -1,0 +1,132 @@
+<% layout('layouts/boilerplate')%>
+<h1>Update Profile</h1>
+
+
+
+
+<form action="/worker/profile/<%=worker._id%>?_method=PUT" method="POST">
+
+        <div class="row">
+            
+
+            <div class = "col-md-6 border-success shadow mb-3">
+    
+
+        <div class="mb-3">
+            <label class="form-label" for="username">Username</label>
+            <input class="form-control" type="text" id="username" name="username" value = "<%=worker.username%>" required>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="email">Email</label>
+            <input class="form-control" type="email" id="email" name="email" value = "<%= worker.email %>" required>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+        </div>
+        
+        <div class="mb-3" >
+            <label class="form-label" for="contact">Contact</label>
+            <input class="form-control" type="number" id="contact" name="contact" value = "<%= worker.contact %>" required>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="address">Address</label>
+            <input class="form-control" type="text" id="address" name="address" value = "<%= worker.address %>" required>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="city">City</label>
+            <input class="form-control" type="text" id="city" name="city" value = "<%= worker.city %>" required>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+        </div>
+    </div>
+
+    <div class = "col-md-6 border-success shadow mb-3">
+
+        <div class="mb-3">
+            <label class="form-label" for="age">Age</label>
+            <input class="form-control" type="number" id="age" name="age" min="18"  value = "<%= worker.age %>"  required>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <select class="form-select" name="gender" aria-label="Gender">
+                <option selected><%= worker.gender %> </option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label" for="description">Description</label>
+            <textarea class="form-control" type="text" id="description" name="description" required><%= worker.description %></textarea>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+        </div>
+
+        
+        <div class="mb-3">
+            <label class="form-label" for="skill">Skills</label>
+            <input class="form-control" type="text" id="skill" placeholder="Add one by one">
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <button class="btn btn-info" id="btnSkill1" onclick="addSkill();" type="button">Add Skill</button>
+        </div>
+
+    
+        <input class="form-control d-none" type="text" id="skillFinal" name="skills">
+          
+
+        <div class="mb-3" id="allSkills">
+            <% let skills = worker.skills.split(",").slice(0,-1); %>
+
+            <%for (let skill of skills) { %>
+                <button class = "btn btn-warning btnSkill rounded-pill ml-3 mb-3 px-3" type="button" ><%= skill %></button>
+
+            <% } %> 
+           
+        </div>
+
+
+        <div class="mb-3" id="allSkills">
+
+
+        </div>
+
+        
+
+    </div>
+
+    <div class="col-md-4 offset-md-5 justify-content-center mb-3">
+        <button class="btn btn-success" onclick="collectSkill();">Update Profile</button>
+    </div>
+
+
+    </div>
+
+    
+
+    
+
+    </form>
+    
+    
+
+

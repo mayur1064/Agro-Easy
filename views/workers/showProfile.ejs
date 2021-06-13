@@ -1,0 +1,67 @@
+<% layout('layouts/boilerplate')%>
+<link rel="stylesheet" href="/stylesheets/stars.css">
+
+<a href="/farmer/jobs/<%= jobId %>" class = "btn btn-success mr-3 mb-3 ">&#x2B9C; Back</a>
+
+<div class="row">
+    <div class="col-md-6">
+        
+        <div class="card mb-3 border-0 shadow mb-3" style="border-radius: 20px;">
+            <div class="card-body">
+                <div class="d-flex">
+                    <img src = "/Asset/user-icon.png" class = "rounded-circle ml-0" alt = "Rounded Image" width = "100" height = "100">
+                    <div class="flex">
+                        <h3 class="card-title ml-md-3 mt-2"><%= worker.username%></h3>
+                        <h5 class="card-text ml-md-3 mt-2" style="font-family:cursive;"><%= worker.description%></h5>
+                    </div>
+                    
+                 </div>
+
+                
+                <h3 class="card-text" style="font-family:cursive;">Age - <%= worker.age %></h3>
+                <div class="d-flex mt-3 mb-3">
+                    <img src = "/Asset/location.png" class = "rounded-circle ml-0" alt = "Rounded Image" width = "50" height = "50">
+                    <div class="flex">
+                        <h3 class="card-title ml-md-3 mt-2"><%= worker.city%></h3>
+                    </div>
+                    
+                 </div>
+                
+                <% let skills = worker.skills.split(",").slice(0,-1); %>
+
+                <%for (let skill of skills) { %>
+                    <p class = "btn btn-warning"><b><%= skill %></b></p>
+
+                <% } %> 
+               
+
+                
+            </div>
+            
+            
+            
+            
+        </div>
+
+    </div>
+    <div class="col-md-6">
+        <div class="card mb-3 card-body shadow mb-3" style="border-radius: 20px;">
+        <ul class="list-group list-group-flush">
+            
+            <h5 class="list-group-item"><b>Gender - </b><%= worker.gender%></h5>
+            
+            <h5 class="list-group-item"><b>&#x1F4DE;</b><%= worker.contact%></h5>
+            
+
+            <h5 class="list-group-item"><b>Address - </b><%= worker.address%></h5>
+            <h5 class="list-group-item"><b>City/Village - </b><%= worker.city%></h5>
+            
+            
+            
+        
+        </ul>
+        </div>
+        
+    </div>
+    
+</div>

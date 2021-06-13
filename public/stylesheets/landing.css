@@ -1,0 +1,84 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.back1 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
+    url(../Asset/photo-3.jpg);
+  background-position: top;
+}
+
+.back2 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
+    url(../Asset/photo-4.jpg);
+  background-position: center;
+}
+
+.back3 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
+    url(../Asset/photo-1.jpg);
+  background-position: center;
+}
+
+.back1,
+.back2,
+.back3 {
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+
+.icon {
+  /* width: 25rem; */
+  height: 15rem;
+  max-width: 20rem;
+  transition: transform 0.2s;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.icon:hover {
+  transform: scale(1.2);
+}
+
+
+.select-font {
+  font-family: "Sacramento", cursive;
+  font-size: 2rem;
+  font-weight: 600;
+  width: 100%;
+  color: black;
+  text-align: center;
+}
+
+.select {
+  padding-top: 3vh;
+  padding-bottom: 5vh;
+}
+
+.main-title {
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 700;
+  padding-left: 15px;
+  transition: transform 0.2s;
+  width: 100%;
+  text-align: center;
+  padding-bottom: 2vh;
+}
+
+.card-title {
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 700;
+}
+
+.goog-te-banner-frame{
+  visibility:hidden !important;
+  }
+  
+  #body-main{
+  top:0px !important;
+  }

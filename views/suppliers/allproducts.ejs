@@ -1,0 +1,51 @@
+<% layout('layouts/boilerplate')%>
+
+<a href="/supplier" class="btn btn-success mr-3 mb-3">&#x2B9C; Back</a>
+<div class="text-center">
+  <h1>Your Products</h1>
+</div>
+<br />
+<div class="mb-3 text-center">
+  <a href="/supplier/products/new" class="btn btn-success mr-3">Add Product</a>
+  <a href="/supplier/orders" class="btn btn-primary mr-3">Show Orders</a>
+</div>
+<br />
+<div class="row">
+  <% for (let product of products){%>
+
+  <div class="col-md-3 mt-3 productCard">
+    <div
+      class="cards border-0 shadow-lg"
+      style="max-width: 18rem; margin: auto;border-radius: 10px";
+    >
+      <a
+        href="/supplier/products/<%=product._id%>"
+        class="text-decoration-none text-dark"
+      >
+        <img
+          class="card-img-top"
+          src="<%=product.images[0].url%>"
+          style="height: 15rem;"
+        />
+        <div class="card-body" style="min-height: 10rem">
+          <h6 class="card-title"><b><%= product.name.substr(0,90) %>... %></b></h6>
+          <p class="card-text" style="color: dimgray">
+            <%= product.description.substr(0,65) %>...
+          </p>
+          <div class="d-flex flex-row">
+            <h3 class="mr-2"><span>&#8377;</span><%= product.price %></h3>
+            <p
+              class="starability-result"
+              data-rating="<%= (product.ratingSum === 0)?(1):Math.floor(product.ratingSum/product.reviewCount) %>"
+            >
+              Rated: <%= (product.ratingSum =
+              0)?(1):(product.ratingSum/product.reviewCount) %> stars
+            </p>
+          </div>
+        </div>
+      </a>
+    </div>
+    <br />
+  </div>
+  <% }%>
+</div>

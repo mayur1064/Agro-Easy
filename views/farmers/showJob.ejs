@@ -1,0 +1,181 @@
+<% layout('layouts/boilerplate')%>
+  <link rel="stylesheet" href="/stylesheets/stars.css">
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.3.0/mapbox-gl.css" rel="stylesheet">
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.3.0/mapbox-gl.js"></script>
+
+
+  <a href="/farmer/jobs" class="btn btn-success mr-3 mb-3 ">&#x2B9C; Back</a>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card mb-3 border-0 shadow mb-3" style="border-radius: 20px;">
+        <div class="card-body">
+          <h5 class="card-title">
+            <%= job.name%>
+          </h5>
+          <p class="card-text">
+            <%= job.description%>
+          </p>
+          <h4 class=""><b><%= job.city%></b></h4>
+
+
+
+          <% let skills = job.skills.split(",").slice(0,-1); %>
+
+            <%for (let skill of skills) { %>
+              <p class="btn btn-warning"><b><%= skill %></b></p>
+
+              <% } %>
+
+
+                <div class="mb-3 d-flex flex-row">
+                  <a class=" btn btn-info mr-3" href="/farmer/jobs/<%=job._id%>/edit">Edit Job</a>
+                  <form action="/farmer/jobs/<%=job._id%>?_method=DELETE" method="POST">
+                    <button class="btn btn btn-danger">Close Job</button>
+                  </form>
+                </div>
+
+        </div>
+
+
+      </div>
+
+
+
+
+    </div>
+    <div class="col-md-6">
+      <div class="card mb-3 card-body border-0 shadow mb-3 grey-light">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item grey-light grey-dark"><b>Available positions - </b>
+            <%= job.quantity%>
+          </li>
+          <div class="list-group-item d-flex ">
+            <img src="/Asset/money.png" class=" " alt="Rounded Image" width="60" height="60">
+            <h4 class="mt-3 ml-3"><span>&#8377;</span>
+              <%= job.wage%>/day</h4>
+
+          </div>
+
+
+          <div class="list-group-item d-flex ">
+            <img src="/Asset/gender.png" class="" alt="Rounded Image" width="50" height="50">
+            <h5 class="mt-3 ml-3">
+              <%= job.gender%>
+            </h5>
+
+          </div>
+
+
+          <div class="list-group-item d-flex mt-3">
+            <div class="mr-3">
+              <img src="/Asset/location.png" class="rounded-circle " alt="Rounded Image" width="50" height="50">
+            </div>
+            <div>
+
+              <h6 class="">
+                <%= job.address%>
+              </h6>
+              <h6 class="">
+                <%= job.city%>
+              </h6>
+
+            </div>
+
+          </div>
+
+
+        </ul>
+      </div>
+    </div>
+    <div class="col">
+
+      <div id='map' class="mb-3 shadow"></div>
+
+    </div>
+
+    <div>
+
+      <% if(applications.length === 0) { %>
+        <h3 class="mt-3 ml-3">No Applicants yet</h3>
+
+        <% } else {%>
+          <h3 class="mt-3 ml-3">
+            <%= applications.length %> Applicants applied</h3>
+          <% } %>
+
+
+
+            <div class="mb-3 border-0 shadow p-3" style="background-color: white;border-radius:20px;">
+
+              <div class="" style="overflow-y: scroll;max-height: 80vh;">
+
+
+
+                <% for(application of applications) { %>
+
+                  <div class="card mb-3 border-0 mb-3 mx-md-5">
+
+                    <div class="card-body border-0" style="">
+
+                      <div class="d-md-flex">
+                        <div class="d-flex mr-auto">
+                          <img src="/Asset/user-icon.png" class="rounded-circle ml-0" alt="Rounded Image" width="50" height="50">
+                          <h5 class="card-title ml-md-3 mt-2">
+                            <%= application.worker.username%> <b>|</b>
+                              <%= application.worker.gender%> <b>|</b>
+                                <%= application.worker.age%> years</h5>
+                        </div>
+
+                        <div class="">
+                          <h5 class="card-text text-success mr-5">
+                            <%= application.status.toUpperCase() %>
+                          </h5>
+
+                        </div>
+
+                        <!-- <h5 class="text-primary">9 June  2021</h5> -->
+
+
+                      </div>
+
+                      <div class="ml-md-3 mt-2">
+
+                        <p class="d-none d-md-block">
+                          <%= application.worker.description %>
+                        </p>
+                        <% let skillsWorker = application.worker.skills.split(",").slice(0,-1); %>
+                          <%for (let skill of skillsWorker) { %>
+                            <p class="btn btn-outline-danger"><b><%= skill %></b></p>
+                            <% } %>
+                      </div>
+
+
+
+                      <div class="mb-3 float-right">
+                        <% if(application.status != "accepted") { %>
+                          <a class=" btn btn-primary" href="/farmer/jobs/<%=application._id%>/hire">Hire</a>
+                          <a class=" btn btn-danger" href="/farmer/jobs/<%=application._id%>/decline">Decline</a>
+                          <% } %>
+
+                            <a class=" btn btn-info" href="/farmer/jobs/<%= job._id %>/profile/<%=application.worker._id%>">Show Profile</a>
+
+                      </div>
+                    </div>
+                  </div>
+                  <% } %>
+              </div>
+            </div>
+    </div>
+
+  </div>
+
+
+  <script>
+    const mapToken = '<%-process.env.MAPBOX_TOKEN%>';
+    const product = <%- JSON.stringify(job) %>
+  </script>
+
+
+
+  <script src="/javascripts/showMap.js"></script>

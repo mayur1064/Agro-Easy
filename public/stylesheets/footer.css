@@ -1,0 +1,13 @@
+footer {
+  background-color: #0f0d0d;
+  color: white;
+  text-align: center;
+}
+
+.goog-logo-link {
+  display: none !important;
+}
+
+.goog-te-gadget {
+  color: transparent !important;
+}

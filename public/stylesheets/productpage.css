@@ -1,0 +1,41 @@
+.cards:hover {
+  transform: scale(1.03);
+}
+
+.cards {
+  transition: 0.2s;
+  border-radius:20px;
+  /* background-color: #d6dcd6; */
+}
+
+.card-job:hover {
+  transform: scale(1.03);
+}
+
+.card-job {
+  transition: 0.2s;
+  border-radius:20px;
+  /* background-color: #d6dcd6; */
+}
+
+.form-control:focus {
+  box-shadow: none;
+}
+  
+.form-control-underlined {
+  border-width: 0;
+  border-bottom-width: 1px;
+  border-radius: 0;
+  padding-left: 0;
+}
+
+.form-control::placeholder {
+  font-size: 0.95rem;
+  color: #aaa;
+  font-style: italic;
+}
+
+.carousel-control-next,
+.carousel-control-prev /*, .carousel-indicators */ {
+    filter: invert(80%);
+}

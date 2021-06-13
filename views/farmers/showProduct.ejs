@@ -1,0 +1,137 @@
+<% layout('layouts/boilerplate')%>
+<link rel="stylesheet" href="/stylesheets/stars.css">
+
+<a href="/farmer/products" class = "btn btn-success mr-3 mb-3">&#x2B9C; Back</a>
+
+<div class="row">
+    <div class="col-md-5 mr-md-1 mb-3">
+        <div id="campgroundCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+            <div class="carousel-inner border  shadow " style="border-radius: 20px 20px 0px 0px;">
+                <% product.images.forEach((img, i) => {  %>
+                <div class="carousel-item product-img <%= i === 0 ? 'active' : ''%>">
+                    <img src="<%= img.url%>" class="d-block mx-auto" alt="">
+                </div>
+                <% }) %>
+
+            </div>
+            <% if(product.images.length > 1) {%>
+            <a class="carousel-control-prev" href="#campgroundCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#campgroundCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+            <% } %>
+        </div>
+
+        
+    </div>
+    <div class="col-md-6  mb-3">
+        <div class="card mb-3 card-body  border  shadow" style="border-radius: 0px 0px 20px 20px ;">
+                <h5 class="card-title"><%= product.name%></h5>
+                <div style="height: 22vh;overflow-y: scroll;" class="mb-3">
+                    <p class="card-text description"><%= product.description%></p>
+                </div>
+                <div class="d-flex">
+                <h2 class="card-text ml-3 mr-auto"><span>&#8377;</span><%= product.price %></h2>
+                <p class="starability-result mr-3" data-rating="<%= (product.ratingSum === 0)?(1):Math.floor(product.ratingSum/product.reviewCount) %>">
+                    Rated: <%=  (product.ratingSum = 0)?(1):(product.ratingSum/product.reviewCount) %> stars
+                </p>
+            </div>
+            
+            <ul class="list-group list-group-flush"  >
+                <li class="list-group-item " ><b>Quantity Available - </b><%= product.quantity%></li>
+                
+
+
+                <div class="d-flex mt-3">
+                    <div class="mr-3">
+                        <img src = "/Asset/supplier-icon.png" class = "rounded-circle " alt = "Rounded Image" width = "60" height = "60">
+                    </div>
+                    <div>
+                    <h6 class="" ><%= product.supplier.username%><span class="ml-5"><b>&#10004; Verified Supplier</span></b></h6>
+                    <h6 class="" ><%= product.supplier.address%></h6>
+                    <h6 class=""><%= product.supplier.contact%></h6>
+                </div>
+                </div>
+                
+                <a class="card-link btn btn-success rounded-pill" href="/farmer/products/<%=product._id%>/order">Buy Now</a> 
+            </ul>
+            
+            
+        </div>
+    </div>
+    <div class="col-11">
+
+        <% if(currentUser || !currentUser){ %>
+		<div >
+        <h2>Leave a Customer Review</h2>
+        <form action="/farmer/products/<%=product._id%>/reviews" method="POST" class="mb-3 validated-form" novalidate>
+            <!-- <div class="mb-3">
+                <label class="form-label" for="rating">Rating</label>
+                <input class="form-range" type="range" min="1" max="5" name="review[rating]" id="rating">
+            </div> -->
+            <fieldset class="starability-basic">
+                <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]" value="1" checked
+                    aria-label="No rating." />
+                <input type="radio" id="first-rate1" name="review[rating]" value="1" />
+                <label for="first-rate1" title="Terrible">1 star</label>
+                <input type="radio" id="first-rate2" name="review[rating]" value="2" />
+                <label for="first-rate2" title="Not good">2 stars</label>
+                <input type="radio" id="first-rate3" name="review[rating]" value="3" />
+                <label for="first-rate3" title="Average">3 stars</label>
+                <input type="radio" id="first-rate4" name="review[rating]" value="4" />
+                <label for="first-rate4" title="Very good">4 stars</label>
+                <input type="radio" id="first-rate5" name="review[rating]" value="5" />
+                <label for="first-rate5" title="Amazing">5 stars</label>
+            </fieldset>
+            <div class="mb-3">
+                <label class="form-label" for="body"></label>
+                <textarea class="form-control" name="review[body]" id="body" cols="30" rows="2" style="font-size: 20px;color:teal" placeholder="Enter your Review Here" required></textarea>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+            <button class="btn btn-success">Submit</button>
+        </form>
+	</div>
+        <% } %>
+        <h3>Customer Reviews</h3>
+    <div class="review-scroll card mb-3 card-body border-0 shadow" style="border-radius: 20px;">
+      <% for(let review of product.reviews) { %>
+      <div class="card mb-3 mx-md-5 border-0" >
+        <div class="card-body">
+          <div class="d-flex">
+            <img src = "/Asset/user-icon.png" 
+            class = "rounded-circle " alt = "Rounded Image" width = "50" height = "50">
+            <h5 class="card-title ml-3 mt-2"><%= review.author.username%></h5>
+            <p class="starability-result ml-3 mt-1 mr-auto" data-rating="<%=review.rating%>">
+              Rated: <%= review.rating %> stars
+            </p>
+            <!-- <h5 class="text-primary">9 June  2021</h5> -->
+
+          
+          </div>
+
+          <div class="d-md-flex">
+            <p class="card-text description ml-5 mr-auto"><%= review.body %></p>
+            <% if( currentUser && review.author.equals(currentUser._id)) {%>
+              <form
+                action="/farmer/products/<%=product._id%>/reviews/<%=review._id%>?_method=DELETE"
+                method="POST"
+              >
+                <button class="btn  btn-danger ml-5" style=>Delete</button>
+              </form>
+              <% } %>
+          </div>
+
+          
+        </div>
+      </div>
+      <% } %>
+    </div>
+    
+</div>
+</div>

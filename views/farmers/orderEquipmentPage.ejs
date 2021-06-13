@@ -1,0 +1,112 @@
+<% layout('layouts/boilerplate')%>
+<div class="row" style="padding-bottom: 10vh">
+  <h1 class="text-center">Order Details</h1>
+  <div class="col-md-6 offset-md-3">
+    <div
+      class="card mb-3 card-body border-0"
+      style="border-radius: 20px"
+    >
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <b><%= equipment.name%></b>
+        </li>
+        <li class="list-group-item">
+          <h4><span>&#8377;</span><%= equipment.price%>/hour</h4>
+        </li>
+        <!--Below price printed but hidden just for calculateEquipmentTotal function to get the price from here -->
+        <p hidden id="priceId"><%= equipment.price %></p>
+        <!--Below quantity printed but hidden just for calculateEquipmentTotal function to get the quantity from here -->
+        <p hidden id="quantityId"><%= equipment.quantity %></p>
+        <li class="list-group-item">
+          <b>Quantity Available - </b><%= equipment.quantity%>
+        </li>
+        <li class="list-group-item">
+          Please Enter Quantity less than available
+        </li>
+      </ul>
+    </div>
+
+    <form
+      action="/farmer/equipments/<%= equipment._id %>/order"
+      method="POST"
+      class="validated-form"
+      novalidate
+    >
+      <div class="mb-3">
+        <label class="form-label" for="quantity">Quantity </label>
+        <input
+          class="form-control"
+          type="number"
+          id="quantity"
+          name="order[quantity]"
+          max="<%= equipment.quantity %>"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label" for="time">Number of hours </label
+        ><!-- calculateEquipmentTotal Function in public/javascript/functions  -->
+        <input
+          class="form-control"
+          type="text"
+          id="time"
+          name="order[time]"
+          oninput="calculateEquipmentTotal();"
+          max="24"
+          min="1"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+
+      <!--Below total will be updated by the calculateEquipmentTotal Function  -->
+      <h4 id="total" class="text-success">Total Cost -</h4>
+      <hr />
+
+      <h4>Please Provide the Farm Address</h4>
+
+      <div class="mb-3">
+        <label class="form-label" for="street">Address </label>
+        <input
+          class="form-control"
+          type="text"
+          id="street"
+          name="order[address]"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+
+      
+      <div class="mb-3">
+        <label class="form-label" for="city">City/Village </label>
+        <input
+          class="form-control"
+          type="text"
+          id="city"
+          name="order[city]"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label" for="contact">Contact </label>
+        <input
+          class="form-control"
+          type="number"
+          id="contact"
+          name="order[contact]"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+
+      <div class="mb-3 mt-3 text-center">
+        <button class="btn btn-success">Place Enquiry</button>
+      </div>
+    </form>
+  </div>
+</div>

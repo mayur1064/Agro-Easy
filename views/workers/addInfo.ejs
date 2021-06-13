@@ -1,0 +1,72 @@
+<% layout('layouts/boilerplate')%>
+    <h1>Additional Information</h1>
+    <form action="/worker/addinfo" method="POST" class="validated-form" novalidate>
+
+
+        <div class="mb-3">
+            <label class="form-label" for="age">Age</label>
+            <input class="form-control" type="number" id="age" name="age" min="18" required>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <select class="form-select" name="gender" aria-label="Gender">
+                <option selected>Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label" for="description">Description</label>
+            <textarea class="form-control" type="text" id="description" name="description" required></textarea>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label" for="skill">Enter Skills one by one</label>
+            <input class="form-control" type="text" id="skill">
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <button class="btn btn-info" id="btnSkill1" onclick="addSkill();" type="button">Add Skill</button>
+        </div>
+
+    
+        <input class="form-control d-none" type="text" id="skillFinal" name="skills">
+          
+
+        <div class="mb-3" id="allSkills">
+
+        </div>
+
+<!--         
+        <div class="mb-3">
+            <button class="btn btn-info" id="btnSkill2" onclick="collectSkill();" type="button">Show Skills</button>
+        </div> -->
+    
+        <div class="mb-3">
+            <button class="btn btn-success" onclick = "collectSkill();">Add Info</button>
+
+        </div>
+
+        
+    </form>
+<!-- 
+    <div class="mb-3">
+        <label class="form-label" for="username">Enter Skills one by one</label>
+        <input class="form-control" type="text" id="skill" name="skill" required>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+
+        <button class="btn btn-success" id="btnSkill" onclick="addSkill();">Add Skill</button>
+    </div> -->

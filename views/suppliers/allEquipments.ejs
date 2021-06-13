@@ -1,0 +1,61 @@
+<% layout('layouts/boilerplate')%>
+
+<a href="/supplier" class="btn btn-success mr-3 mb-3">&#x2B9C; Back</a>
+<div class="text-center">
+  <h1>Your Farm Equipments</h1>
+</div>
+<br />
+<div class="mb-3 text-center">
+  <a href="/supplier/equipments/new" class="btn btn-success mr-3"
+    >Add Farm Equipment</a
+  >
+  <a href="/supplier/orders" class="btn btn-primary mr-3">Show Orders</a>
+</div>
+<br />
+
+<div class="row">
+  <% for (let equipment of equipments){%>
+
+  <div class="col-md-3 mt-2 productCard">
+    <div
+      class="card cards border-0 shadow-lg"
+      style="max-width: 19rem; margin: auto;border-radius: 10px;"
+    >
+      <a
+        href="/supplier/equipments/<%=equipment._id%>"
+        class="text-decoration-none text-dark"
+      >
+        <img
+          class="card-img-top"
+          src="<%=equipment.images[0].url%>"
+          style="height: 15rem;border-radius: 10px 10px 0px 0px;"
+        />
+        <div class="card-body" style="min-height: 10rem;border-radius:0px 0px 10px 10px;">
+          <h5 class="card-title"><%= equipment.name.substr(0,60) %>%></h5>
+          <p class="card-text" style="color: dimgray">
+            <%= equipment.description.substr(0,70) %>
+          </p>
+          <div class="d-flex flex-row">
+            <h5 class="mr-2">
+              <span class="notranslate">&#8377;</span><%= equipment.price
+              %>/hour
+            </h5>
+            <h5 class="card-text ml-1"><%= equipment.city %></h5>
+          </div>
+          <div>
+            <p
+              class="starability-result"
+              data-rating="<%= (equipment.ratingSum === 0)?(1):Math.floor(equipment.ratingSum/equipment.reviewCount) %>"
+            >
+              Rated: <%= (equipment.ratingSum =
+              0)?(1):(equipment.ratingSum/equipment.reviewCount) %> stars
+            </p>
+          </div>
+        </div>
+      </a>
+    </div>
+    <br />
+  </div>
+
+  <% }%>
+</div>

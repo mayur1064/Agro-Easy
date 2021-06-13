@@ -1,0 +1,83 @@
+<% layout('layouts/boilerplate')%>
+<div class="row">
+    <h1 class="text-center">New Farm Equipment</h1>
+    <div class="col-md-6 offset-md-3">
+        <form action="/supplier/equipments" method="POST" novalidate class="validated-form" enctype="multipart/form-data">
+
+            <div class="mb-3">
+                <label class="form-label" for="name">Equipment Name</label>
+                <input class="form-control" type="text" id="name" name="equipment[name]" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="price">Rate per Hour</label>
+                <div class="input-group">
+                    <span class="input-group-text" id="price-label">&#8377;</span>
+                    <input type="number" class="form-control" id="price" placeholder="0.00" aria-label="price"
+                        aria-describedby="price-label" name="equipment[price]" required>
+                </div>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="quantity">Equipment Quantity</label>
+                <div class="input-group">
+                    
+                    <input type="number" class="form-control" id="quantity" placeholder="0" aria-label="quantity"
+                        aria-describedby="quantity-label" name="equipment[quantity]" required>
+                </div>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+  
+        
+            <div class="mb-3">
+                <label class="form-label" for="description">Description</label>
+                <textarea class="form-control" type="text" id="description" name="equipment[description]"
+                    required></textarea>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="city">Address</label>
+                <input class="form-control" type="text" id="city" name="equipment[address]" value="<%=supplier.address%>" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="city">City/Village</label>
+                <input class="form-control" type="text" id="city" name="equipment[city]" value="<%=supplier.city%>" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+
+
+            
+            
+            <div class="mb-3">
+                <div class="form-file custom-file">
+                    <input type="file" class="form-file-input" id="image" name="image" multiple>
+                    <label class="form-file-label" for="image">
+                        <span class="form-file-text custom-file-label">Choose image(s)...</span>
+                        <span class="form-file-button">Browse</span>
+                    </label>
+                </div>
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-success">Add Equipment</button>
+            </div>
+        </form>
+        
+    </div>
+</div>

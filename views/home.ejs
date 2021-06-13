@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+      crossorigin="anonymous"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Agro App</title>
+    <link rel="stylesheet" href="/stylesheets/landing.css" />
+  </head>
+  <body id="body-main">
+    <%- include('./partials/navbar.ejs')%>
+    <div
+      id="carouselExampleIndicators"
+      class="carousel slide carousel-fade"
+      data-bs-ride="carousel"
+    >
+      <div class="carousel-indicators">
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide-to="0"
+          class="active"
+          aria-current="true"
+          aria-label="Slide 1"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide-to="1"
+          aria-label="Slide 2"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide-to="2"
+          aria-label="Slide 3"
+        ></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active back3">
+          <div class="d-flex h-100 align-items-center justify-content-center">
+            <div class="carousel-caption d-md-block" style="top:30vh;">
+              <h1 class="display-5" style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Reimagining Agricultural Ecosystem</h1>
+              <p class="d-none d-md-inline" style="font-size: 1.5rem;">Our Purpose is to bridge the existing gap between the stakeholders in the current agricultural
+                ecosystem enabling greater efficiency and productivity</p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item  back2">
+          <div class="d-flex h-100 align-items-center justify-content-center">
+            <div class="carousel-caption d-md-block" style="top:30vh;">
+              <h1 class="display-5" style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Empowering Farmers to Increase Profits</h1>
+              <p class="d-none d-md-inline" style="font-size: 1.5rem;">“Agriculture is our wisest pursuit, because it will in the end contribute most to real wealth, good morals, and happiness.” — Thomas Jefferson</p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item  back1">
+          <div class="d-flex h-100 align-items-center justify-content-center">
+            <div class="carousel-caption d-md-block" style="top:30vh;">
+              <h1 class="display-5" style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Helping Farm Workers to get their Fair Share</h1>
+              <p class="d-none d-md-inline" style="font-size: 1.3rem;">Latest census for the year 2011 says that out of  total  263 million people directly involved in farming activities, only 119 million people are land-owning farmers while 144 million are landless workers and peasants</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+    <div id="services">
+      <div class="container select">
+        <div class="row">
+          <div class="col-lg text-center">
+            <img
+              style="padding-bottom: 10px"
+              class="icon"
+              src="./Asset/trans6.png"
+            />
+            <p style="padding-bottom: 10px" class="select-font">I Am Farmer</p>
+            <a class="btn btn-outline-primary" href="/farmer">Explore More</a>
+          </div>
+          <div class="col-lg text-center">
+            <img class="icon" src="./Asset/logo8.png" />
+            <p style="padding-bottom: 10px" class="select-font">
+              I Am Supplier
+            </p>
+            <a class="btn btn-outline-primary" href="/supplier">Explore More</a>
+          </div>
+          <div class="col-lg text-center">
+            <img class="icon" src="./Asset/trans3.png" />
+            <p style="padding-bottom: 10px" class="select-font">
+              I Am Farm Worker
+            </p>
+            <a class="btn btn-outline-primary" href="/worker"> Explore More </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div
+      class="main container-fluid text-center"
+      style="padding-top: 5vh; padding-bottom: 3vh; background-color: #faf1e6"
+    >
+      <h1 class="main-title">COMPREHENSIVE SERVICES</h1>
+      <p class="description container mb-5">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac
+        nunc non arcu aliquet sollicitudin. Sed elementum placerat ex. Donec a
+        lectus vel lectus faucibus mattis. Lorem ipsum dolor sit amet,
+        consectetur adipiscing elit. Suspendisse ac nunc non arcu aliquet
+        sollicitudin. Sed elementum placerat ex. Donec a lectus vel lectus
+        faucibus mattis
+      </p>
+      <div class="services container">
+        <div class="row">
+          <div class="col">
+            <div class="card" style="width: 16rem; margin: auto">
+              <img src="./Asset/logo4.png" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">Farmer</h5>
+                <hr />
+                <p class="card-text">
+                  Helping you to Buy Agro Products directly from the Suppliers from various regions 
+                </p>
+              </div>
+            </div>
+            <br />
+          </div>
+          <div class="col">
+            <div class="card" style="width: 16rem; margin: auto">
+              <img src="./Asset/logo8.png" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">Supplier</h5>
+                <hr />
+                <p class="card-text">
+                  Sell your wide variety of products related to farming, through our platform. We have millions of farmers connected from all parts of country.
+                </p>
+              </div>
+            </div>
+            <br />
+          </div>
+          <div class="col">
+            <div class="card" style="width: 16rem; margin: auto">
+              <img src="./Asset/logo5.png" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">Heavy Machinery</h5>
+                <hr />
+                <p class="card-text">
+                  Why keep Farm Equipments unoccupied ?. Make them work for you by renting them to the needful.
+                </p>
+              </div>
+            </div>
+            <br />
+          </div>
+          <div class="col">
+            <div class="card" style="width: 16rem; margin: auto">
+              <img src="./Asset/logo2.png" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">Farm Worker</h5>
+                <hr />
+                <p class="card-text">
+                  Connect to farmers in your region to get Farm work and better opportunities 
+                </p>
+              </div>
+            </div>
+            <br />
+          </div>
+        </div>
+      </div>
+    </div>
+    <%-include('./partials/footer.ejs')%>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    
+    <script
+      src="https://kit.fontawesome.com/cc21f63f8e.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script SameSite="None; Secure" src="https://static.landbot.io/landbot-3/landbot-3.0.0.js"></script>
+<script>
+  var myLandbot = new Landbot.Livechat({
+    configUrl: 'https://chats.landbot.io/v3/H-929407-1ZTX75BON6HKD3YI/index.json',
+  });
+</script>
+
+  </body>
+</html>

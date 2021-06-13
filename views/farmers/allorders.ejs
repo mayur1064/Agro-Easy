@@ -1,0 +1,80 @@
+<% layout('layouts/boilerplate')%>
+
+<a href="/farmer" class="btn btn-success mr-3 mb-3">&#x2B9C; Back</a>
+<h1 class="text-center">Your Orders</h1>
+
+
+
+<div class="row mx-md-5">
+  <% for (let order of orders){%>
+  <div class="card cards orderCard mb-3 border shadow col-md-12 col-sm-3 mr-md-4" style="border-radius: 10px;;">
+    <div class="row">
+      <div class="col-5 col-md-3 pl-1 pr-0">
+
+        
+        <img
+          class="border-0 rounded mt-3 ml-md-3 "
+          alt=""
+          src="<%=order.product.images[0].url%>"
+          style="height: 7rem;width:100%;max-width: 10rem;"
+        />
+        
+       
+      </div>
+      <div class="col-7 col-md-9 p-0">
+        <div class="card-body pl-0">
+          <% if(order.product.type === "product") { %>
+           
+            <div class="d-md-flex">
+              <% if(order.product.name.length < 30 ) { %>
+                <h4 class="card-title"><%= order.product.name %></h4>
+              <% } else {%>
+                <h5 class="card-title mr-md-5"><%= order.product.name.slice(0,120) %>..</h5>
+              <% } %>
+              <h5 class="text-info ml-auto">Agro Product</h5>
+              </div>
+              <div class="d-md-flex">
+                <h6 class="card-text"><b>Ordered Quantity - </b><%= order.quantity %></h6>
+                 <h6 class="card-text ml-md-3"><b>Supplier - </b><%= order.supplier.username %></h6>
+              </div>
+  
+             <div class="d-md-flex ">
+              <p class="card-text text-primary mr-auto mt-3"><b> <%= order.status.toUpperCase() %></b></p>
+  
+              <a class="btn btn-primary mt-md-3" href="/farmer/orders/<%=order._id%>">Show Order</a>
+  
+             </div> 
+  
+    
+          <% } else {%>
+
+            <div class="d-md-flex">
+            <% if(order.product.name.length < 30 ) { %>
+              <h4 class="card-title"><%= order.product.name %></h4>
+            <% } else {%>
+              <h5 class="card-title"><%= order.product.name.slice(0,120) %>..</h5>
+            <% } %>
+            <h5 class="text-success ml-auto">Farm Equipment</h5>
+            </div>
+            <div class="d-md-flex">
+              <h6 class="card-text"><b>Ordered Quantity - </b><%= order.quantity %></h6>
+              <h5 class="card-text ml-md-3">&#128336;<%= order.time %> hours</h5>
+               <h6 class="card-text ml-md-3"><b>Owner - </b><%= order.supplier.username %></h6>
+            </div>
+
+           <div class="d-md-flex ">
+            <p class="card-text text-primary mr-auto mt-3"><b> <%= order.status.toUpperCase() %></b></p>
+
+            <a class="btn btn-primary mt-md-3" href="/farmer/orders/<%=order._id%>">Show Enquiry</a>
+
+           </div> 
+
+          
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% }%>
+</div>
+</div>
