@@ -9,7 +9,7 @@
             <div class="carousel-inner border  shadow " style="border-radius: 20px 20px 0px 0px;">
                 <% product.images.forEach((img, i) => {  %>
                 <div class="carousel-item product-img <%= i === 0 ? 'active' : ''%>">
-                    <img src="<%= img.url%>" class="d-block mx-auto" alt="">
+                    <img src="<%= img.url%>" class="d-block mx-auto" alt="" style="max-width: 100%;">
                 </div>
                 <% }) %>
 
