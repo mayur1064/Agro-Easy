@@ -16,7 +16,7 @@ const parseJson = express.json({ extended: false });
 
 
 router.route('/:orderId/:productId')
-    .get(products.payOrder)
+    .get(isLoggedIn,[parseUrl,parseJson],products.payOrder)
 
 router.route('/callback/:orderId/:productId')
     .post(products.payCallback)
