@@ -6,7 +6,7 @@
 
 .back1 {
   background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
-    url(../Asset/photo-3.jpg);
+    url(../Asset/photo-1.jpg);
   background-position: top;
 }
 
@@ -18,7 +18,7 @@
 
 .back3 {
   background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
-    url(../Asset/photo-1.jpg);
+    url(../Asset/photo-3.jpg);
   background-position: center;
 }
 
@@ -30,7 +30,6 @@
   background-size: cover;
   background-position: center;
 }
-
 
 .icon {
   /* width: 25rem; */
@@ -45,9 +44,8 @@
   transform: scale(1.2);
 }
 
-
 .select-font {
-  font-family: "Sacramento", cursive;
+  font-family: "Josefin Sans", sans-serif;
   font-size: 2rem;
   font-weight: 600;
   width: 100%;
@@ -75,11 +73,44 @@
   font-weight: 700;
 }
 
-.goog-te-banner-frame{
-  visibility:hidden !important;
-  }
-  
-  #body-main{
-  top:0px !important;
-  }
+.goog-te-banner-frame {
+  visibility: hidden !important;
+}
 
+#body-main {
+  top: 0px !important;
+}
+
+#testimonials {
+  padding-top: 5vh;
+  padding-bottom: 2%;
+}
+
+.testimonial-text {
+  font-size: 3rem;
+  line-height: 1.5;
+}
+
+.testimonial-image {
+  width: 10%;
+  border-radius: 100%;
+  margin: 20px;
+}
+
+.press-logo {
+  width: 15%;
+  margin: 20px 20px 50px;
+}
+
+.press-logo {
+  width: 15%;
+  margin: 20px 20px 50px;
+}
+
+.texts {
+  /* font-family: "Montserrat-Bold"; */
+  font-size: 1.5rem;
+  width: 70%;
+  margin: auto;
+  line-height: 1.5;
+}

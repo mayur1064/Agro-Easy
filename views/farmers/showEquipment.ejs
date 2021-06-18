@@ -5,13 +5,13 @@
 
 <a href="/farmer/equipments" class = "btn btn-success mr-3 mb-3 ">&#x2B9C; Back</a>
 
-<div class="row">
+<div class="row" style="margin-bottom: 10vh;">
     <div class="col-md-5  mb-3">
         <div id="campgroundCarousel" class="carousel slide carousel-fade " data-ride="carousel">
-            <div class="carousel-inner border shadow grey-light" style="border-radius: 20px 20px 0px 0px;">
+            <div class="carousel-inner ">
                 <% equipment.images.forEach((img, i) => {  %>
                 <div class="carousel-item product-img <%= i === 0 ? 'active' : ''%>">
-                    <img src="<%= img.url%>" class="d-block mx-auto" alt="" style="max-width: 100%;">
+                    <img src="<%= img.url%>" class="d-block mx-auto prodImg" alt="" style="max-width: 100%;height: 35rem;border-radius: 20px 20px 20px 20px;">
                 </div>
                 <% }) %>
 
@@ -28,43 +28,42 @@
             <% } %>
         </div>
     </div>
-    <div class="col-md-7">
-        <div class="card mb-3 card-body border shadow" style="border-radius: 0px 0px 20px 20px ;">
-        
-                <h4 class="card-title"><%= equipment.name%> </h4>
-                <h5 class="card-title"><%= equipment.city%> </h5>
-                <div style="max-height: 22vh;overflow-y: scroll;" class="mb-3">
-                    <p class="card-text description"><%= equipment.description%></p>
-                </div>
+    <div class="col-md-7" style="margin-bottom: 6vh;">
+        <div class="card mb-3 border shadow" style="border-radius: 20px 20px 20px 20px;">
+        <div class="card-body">
+            <h4 class="card-title"><%= equipment.name%> </h4>
+            <h5 class="card-title"><%= equipment.city%> </h5>
+            <div style="max-height: 22vh;min-height:15vh;overflow-y: scroll;" class="mb-3">
+                <p class="card-text description"><%= equipment.description%></p>
+            </div>
 
-                <div class="d-flex">
-                    <h2 class="card-text ml-md-3 mr-auto"><span>&#8377;</span><%= equipment.price %>/hour</h2>
-                    <p class="starability-result mr-3" data-rating="<%= (equipment.ratingSum === 0)?(1):Math.floor(equipment.ratingSum/equipment.reviewCount) %>">
-                        Rated: <%=  (equipment.ratingSum = 0)?(1):(equipment.ratingSum/equipment.reviewCount) %> stars
-                    </p>
-               
-                </div>
-                
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item  "><b>Quantity Available - </b><%= equipment.quantity%></li>
-            
-            <div class="d-flex mt-3">
-                <div class="mr-3">
-                <img src = "/Asset/location.png" 
-                class = "rounded-circle " alt = "Rounded Image" width = "60" height = "60">
-                </div>
-                <div>
-                    <div class="d-md-flex">
-                        <h6 class="" ><%= equipment.supplier.username%></b></h6>
-                        <h6 class="ml-md-5" ><b>&#10004; Verified Owner</b></h6>
-                    </div>
-                    <h6 class="" ><%= equipment.address%></h6>
-                    <h6 class="">&#x1F4DE;<%= equipment.supplier.contact%></h6>
-                </div>
+            <div class="d-flex">
+                <h2 class="card-text ml-md-3 mr-auto"><span>&#8377;</span><%= equipment.price %>/hour</h2>
+                <p class="starability-result mr-3" data-rating="<%= (equipment.ratingSum === 0)?(1):Math.floor(equipment.ratingSum/equipment.reviewCount) %>">
+                    Rated: <%=  (equipment.ratingSum = 0)?(1):(equipment.ratingSum/equipment.reviewCount) %> stars
+                </p>
             </div>
             
-            <a class="card-link btn btn-success rounded-pill mx-md-5 " href="/farmer/equipments/<%=equipment._id%>/order">Rent Now</a> 
-        </ul>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item  "><b>Quantity Available - </b><%= equipment.quantity%></li>
+        
+        <div class="d-flex mt-3">
+            <div class="mr-3">
+            <img src = "/Asset/location.png" 
+            class = "rounded-circle " alt = "Rounded Image" width = "60" height = "60">
+            </div>
+            <div>
+                <div class="d-md-flex">
+                    <h6 class="" ><%= equipment.supplier.username%></b></h6>
+                    <h6 class="ml-md-5" ><b style="color: green;">&#10004; Verified Owner</b></h6>
+                </div>
+                <h6 class="" ><%= equipment.address%></h6>
+                <h6 class="">&#x1F4DE;<%= equipment.supplier.contact%></h6>
+            </div>
+        </div>
+    </ul>
+        </div>
+        <a class="card-footer btn btn-success bg-success" style="border-radius: 0px 0px 20px 20px" href="/farmer/equipments/<%=equipment._id%>/order">Rent Now</a> 
         </div>
         
     </div>
@@ -141,21 +140,16 @@
             <% } %>
           </div>
         
-    </div>
-    
-
-    
-    
+    </div>    
 </div>
 
+<script>
+    const mapToken = '<%-process.env.MAPBOX_TOKEN%>';
+    const product = <%- JSON.stringify(equipment) %>
+</script>
 
-    <script>
-        const mapToken = '<%-process.env.MAPBOX_TOKEN%>';
-        const product = <%- JSON.stringify(equipment) %>
-    </script>
 
 
-  
-  <script src="/javascripts/showMap.js"></script>
+<script src="/javascripts/showMap.js"></script>
    
   

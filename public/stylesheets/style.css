@@ -2,7 +2,6 @@
 @import "bootstrap/variables";
 @import "bootstrap/mixins";
 
-
 .review-scroll {
   height: 40vh;
   overflow-y: scroll;
@@ -32,42 +31,38 @@
   padding-left: 0;
 }
 
-.goog-te-banner-frame{
-  visibility:hidden !important;
-  }
-  
-  #body-main{
-  top:0px !important;
-  }
-
-  
-  .product-img img {
-    width: auto;
-    max-height: 600px;
-  }
-
-  
-#map {
-
-  height:350px;
-  border-radius: 20px;
-
+.goog-te-banner-frame {
+  visibility: hidden !important;
 }
 
+#body-main {
+  top: 0px !important;
+}
+
+.prodImg {
+  display: block;
+  margin: auto;
+  object-fit: contain;
+}
+.product-img img {
+  width: auto;
+  max-height: 600px;
+}
+
+#map {
+  height: 350px;
+  border-radius: 20px;
+}
 
 ::-webkit-scrollbar {
   width: 10px;
   height: 15px;
-  }
-  ::-webkit-scrollbar-track-piece  {
-  background-color: #C2D2E4;
-  }
-  ::-webkit-scrollbar-thumb:vertical {
+}
+::-webkit-scrollbar-track-piece {
+  background-color: #c2d2e4;
+}
+::-webkit-scrollbar-thumb:vertical {
   height: 30px;
   background-color: #00b359;
   -webkit-border-radius: 1ex;
-  }
-  
-
-
-  
+}

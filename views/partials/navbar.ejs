@@ -51,12 +51,12 @@
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li>
                     <a class="dropdown-item" href="/farmer/products"
-                      >Buy Products</a
+                      >Buy Agro Products</a
                     >
                   </li>
                   <li>
                     <a class="dropdown-item" href="/farmer/equipments"
-                      >Buy Equipments</a
+                      >Rent Farm Equipments</a
                     >
                   </li>
                   <li><hr class="dropdown-divider" /></li>
@@ -79,12 +79,12 @@
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li>
                     <a class="dropdown-item" href="/supplier/products"
-                      >Sell Products</a
+                      >Sell Agro Products</a
                     >
                   </li>
                   <li>
                     <a class="dropdown-item" href="/supplier/equipments"
-                      >Rent Equipments</a
+                      >Lend Farm Equipments</a
                     >
                   </li>
                   <li><hr class="dropdown-divider" /></li>
@@ -120,9 +120,18 @@
                 </ul>
               </li>
               <li class="nav-item">
+                <a class="nav-link" href="/tutorial">Guide </a>
+              </li>
+              
+              <li class="nav-item">
                 <a class="nav-link" href="#footer">Contact Us </a>
               </li>
             </ul>
+
+            <a class="navbar-brand" href="#selectLanguage">
+              <img class="logo-2" src="/Asset/language.png" />
+            </a>
+
             <% if(!currentUser) {%>
             <a
               type="button"

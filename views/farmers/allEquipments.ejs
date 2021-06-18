@@ -2,46 +2,50 @@
 
 <a href="/farmer" class="btn btn-success mr-3 mb-3">&#x2B9C; Back</a>
 
-<div class="row">
-
+<div class="row" style="margin-bottom: 10vh">
   <div class="col-md-6 offset-md-3">
-
-<div
-  class="
-    input-group
-    bg-light
-    rounded rounded-pill
-    border-2
-    shadow-md
-    border-warning
-    mb-4
-  "
->
-  <input
-    type="text"
-    class="form-control rounded rounded-pill border-0 bg-light"
-    id="search"
-    oninput="searchProduct();"
-    placeholder="What're you searching for?"
-    aria-describedby="button-addon1"
-  />
-  <div class="input-group-append">
-    <button id="button-addon1" type="submit" class="btn btn-link text-primary">
-      <i class="fa fa-search"></i>
-    </button>
+    <div
+      class="
+        input-group
+        bg-light
+        rounded rounded-pill
+        border-2
+        shadow-md
+        border-warning
+        mb-4
+      "
+    >
+      <input
+        type="text"
+        class="form-control rounded rounded-pill border-0 bg-light"
+        id="search"
+        oninput="searchProduct();"
+        placeholder="What're you searching for?"
+        aria-describedby="button-addon1"
+      />
+      <div class="input-group-append">
+        <button
+          id="button-addon1"
+          type="submit"
+          class="btn btn-link text-primary"
+        >
+          <i class="fa fa-search"></i>
+        </button>
+      </div>
+    </div>
   </div>
-</div>
-</div>
 
-<h1>Rent Farm Equipments in your Area</h1>
-
+  <h1>Rent Farm Equipments in your Area</h1>
 
   <% for (let equipment of equipments){%>
 
-  <div class="col-md-3 mt-2 productCard">
+  <div
+    class="col-md-3 mt-2 productCard"
+    style="width: 18rem; margin: auto; border-radius: 7px"
+  >
     <div
-      class="card cards border-0 shadow-lg "
-      style="max-width: 19rem; margin: auto;border-radius: 10px;"
+      class="card cards border-0 shadow-lg"
+      style="width: 18rem; margin: auto; border-radius: 10px"
     >
       <a
         href="/farmer/equipments/<%=equipment._id%>"
@@ -50,20 +54,28 @@
         <img
           class="card-img-top"
           src="<%=equipment.images[0].url%>"
-          style="height: 15rem;border-radius: 10px 10px 0px 0px;"
+          style="
+            height: 15rem;
+            border-radius: 7px 7px 0px 0px;
+            object-fit: contain;
+          "
         />
-        <div class="card-body" style="min-height: 10rem;border-radius:10px 10px 10px 10px;">
+        <div
+          class="card-body"
+          style="height: 14rem; border-radius: 7px 7px 7px 7px"
+        >
           <h5 class="card-title"><%= equipment.name.substr(0,60) %>%></h5>
-          <p class="card-text" style="color: dimgray" >
-            <%= equipment.description.substr(0,70) %>...
+          <p class="card-text" style="color: dimgray">
+            <%= equipment.description.substr(0,55) %>...
           </p>
           <div class="d-flex flex-row">
             <h5 class="mr-2">
-              <span class="mr-2 notranslate">&#8377;</span><%= equipment.price %>/hour
+              <span class="mr-2 notranslate">&#8377;</span><%= equipment.price
+              %>/hour
             </h5>
             <h5 class="card-text ml-1"><%= equipment.city %></h5>
           </div>
-          <div>
+          <div class="ml-3">
             <p
               class="starability-result"
               data-rating="<%= (equipment.ratingSum === 0)?(1):Math.floor(equipment.ratingSum/equipment.reviewCount) %>"

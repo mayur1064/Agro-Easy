@@ -2,47 +2,47 @@
 
 <a href="/farmer" class="btn btn-success mr-3 mb-3">&#x2B9C; Back</a>
 
-<div class="row">
-
-<div class="col-md-6 offset-md-3">
-<div
-  class="
-    input-group
-    bg-light
-    rounded rounded-pill
-    border-2
-    shadow-md
-    border-warning
-    mb-4
-   
-  "
-  
->
-  <input
-    type="text"
-    class="form-control rounded rounded-pill border-0 bg-light"
-    id="search"
-    oninput="searchProduct();"
-    placeholder="What're you searching for?"
-    aria-describedby="button-addon1"
-  />
-  <div class="input-group-append">
-    <button id="button-addon1" type="submit" class="btn btn-link text-primary">
-      <i class="fa fa-search"></i>
-    </button>
+<div class="row" style="margin-bottom: 10vh">
+  <div class="col-md-6 offset-md-3">
+    <div
+      class="
+        input-group
+        bg-light
+        rounded rounded-pill
+        border-2
+        shadow-md
+        border-warning
+        mb-4
+      "
+    >
+      <input
+        type="text"
+        class="form-control rounded rounded-pill border-0 bg-light"
+        id="search"
+        oninput="searchProduct();"
+        placeholder="What're you searching for?"
+        aria-describedby="button-addon1"
+      />
+      <div class="input-group-append">
+        <button
+          id="button-addon1"
+          type="submit"
+          class="btn btn-link text-primary"
+        >
+          <i class="fa fa-search"></i>
+        </button>
+      </div>
+    </div>
   </div>
-</div>
-</div>
 
-<h1>Latest Products</h1>
-
+  <h1>Latest Products</h1>
 
   <% for (let product of products){%>
 
   <div class="col-md-3 mt-3 productCard">
     <div
       class="cards border-0 shadow-lg"
-      style="max-width: 18rem; margin: auto;border-radius: 10px;"
+      style="width: 18rem; margin: auto; border-radius: 7px"
     >
       <a
         href="/farmer/products/<%=product._id%>"
@@ -51,24 +51,26 @@
         <img
           class="card-img-top"
           src="<%=product.images[0].url%>"
-          style="height: 15rem;"
+          style="height: 15rem; object-fit: contain"
         />
-        <div class="card-body" style="min-height: 10rem;">
-          <h6 class="card-title"><b><%= product.name.substr(0,90) %>... %></b></h6>
-          <p class="card-text" >
-            <%= product.description.substr(0,65) %>...
-          </p>
+        <div class="card-body" style="height: 13.7rem">
+          <h6 class="card-title">
+            <b><%= product.name.substr(0,70) %>... %></b>
+          </h6>
+          <p class="card-text"><%= product.description.substr(0,55) %>...</p>
           <div class="d-flex flex-row">
             <h3 class="mr-2">
               <span class="mr-2">&#8377;</span><%= product.price %>
             </h3>
-            <p
-              class="starability-result"
-              data-rating="<%= (product.ratingSum === 0)?(1):Math.floor(product.ratingSum/product.reviewCount) %>"
-            >
-              Rated: <%= (product.ratingSum =
-              0)?(1):(product.ratingSum/product.reviewCount) %> stars
-            </p>
+            <div class="">
+              <p
+                class="starability-result"
+                data-rating="<%= (product.ratingSum === 0)?(1):Math.floor(product.ratingSum/product.reviewCount) %>"
+              >
+                Rated: <%= (product.ratingSum =
+                0)?(1):(product.ratingSum/product.reviewCount) %> stars
+              </p>
+            </div>
           </div>
         </div>
       </a>
