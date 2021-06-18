@@ -24,10 +24,7 @@ const workerRoutes = require("./routes/workers");
 const reviewRoutes = require("./routes/reviews");
 const paymentRoutes = require("./routes/payment");
 
-
-
-const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/agro-app'
-
+const dbUrl = process.env.DB_URL || "mongodb://localhost:27017/agro-app";
 
 mongoose.connect(dbUrl, {
   useNewUrlParser: true,
@@ -52,22 +49,21 @@ app.set("views", path.join(__dirname, "views"));
 app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, "public")));
 
-
 const secret = process.env.SECRET || "thisshouldbeabettersecret!";
 
 const store = MongoStore.create({
   mongoUrl: dbUrl,
   secret,
-  touchAfter: 24 * 60 * 60
+  touchAfter: 24 * 60 * 60,
 });
 
 store.on("error", function (e) {
-  console.log("SESSION STORE ERROR", e)
-})
+  console.log("SESSION STORE ERROR", e);
+});
 
 const sessionConfig = {
   store,
-  name : 'session',
+  name: "session",
   secret,
   resave: false,
   saveUninitialized: true,
@@ -77,8 +73,6 @@ const sessionConfig = {
     maxAge: 1000 * 60 * 60 * 24 * 7,
   },
 };
-
-
 
 app.use(session(sessionConfig));
 app.use(flash());
@@ -97,9 +91,6 @@ app.use((req, res, next) => {
   next();
 });
 
-
-
-
 app.use("/payment", paymentRoutes);
 app.use(express.urlencoded({ extended: true }));
 app.use("/user", userRoutes);
@@ -108,15 +99,16 @@ app.use("/farmer", farmerRoutes);
 app.use("/worker", workerRoutes);
 app.use("/farmer/products/:id/reviews", reviewRoutes);
 
-
-
-
 app.get("/", (req, res) => {
   res.render("home");
 });
 
 app.get("/home", (req, res) => {
   res.render("home");
+});
+
+app.get("/tutorial", (req, res) => {
+  res.render("tutorial");
 });
 
 app.all("*", (req, res, next) => {
@@ -129,10 +121,7 @@ app.use((err, req, res, next) => {
   res.status(statusCode).render("error", { err });
 });
 
-
-
-const port = process.env.PORT || 3000
-
+const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
   console.log(`Serving on port ${port}`);
