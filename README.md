@@ -6,6 +6,9 @@
 ## Finalist @ STAR Hackathon 2021, Pune. 
 ## Built with Nodejs + Expressjs + MongoDB + Bootstrap
 
+<a href = "https://youtu.be/JC9G0axum8I">Youtube</a>
+<a href = "https://agroeaasy.herokuapp.com/">Website</a>
+
 ## Features
 
 - Farmer Profile
@@ -28,5 +31,6 @@
 - ChatBot
 - Multilingual support ( Almost all major Indian Languages)
 - Integrated Maps and much more...
+
 
 
