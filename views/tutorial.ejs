@@ -1,46 +1,97 @@
-<body>
-  <%- include('./partials/navbar.ejs')%>
-  <div style="text-align: center">
-    <div class="container" style="padding-top: 15vh; padding-bottom: 10vh">
-      <h1>Video Tutorial</h1>
-      <br />
-      <h4>
-        Welcome to Agro Easy, Here's a short step by step tutorial to help you
-        for use our application easily.
-      </h4>
-      <p>
-        Our Purpose is to bridge the existing gap between the stakeholders in
-        the current agricultural ecosystem enabling greater efficiency and
-        productivity. To Empower farmers to increase their profits And to Help
-        Farm Workers to get their fair share.
-      </p>
-      <br />
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=yes"
+    />
 
-      <div class="embed-responsive embed-responsive-16by9">
-        <iframe
-          class="embed-responsive-item"
-          style="height: 55%; width: 60%; padding-top: 5vh"
-          src="https://www.youtube.com/embed/JC9G0axum8I"
-          allowfullscreen="true"
-        ></iframe>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+      crossorigin="anonymous"
+    />
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/stylesheets/fsw.css" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title>Farmer</title>
+  </head>
+  <body>
+    <%- include('./partials/navbar.ejs')%>
+    <div style="text-align: center">
+      <div class="container" style="padding-top: 15vh; padding-bottom: 10vh">
+        <h1>Video Tutorial</h1>
+        <br />
+        <h4>
+          Welcome to Agro Easy, Here's a short step by step tutorial to help you
+          for use our application easily.
+        </h4>
+        <p>
+          Our Purpose is to bridge the existing gap between the stakeholders in
+          the current agricultural ecosystem enabling greater efficiency and
+          productivity. To Empower farmers to increase their profits And to Help
+          Farm Workers to get their fair share.
+        </p>
+        <br />
+  
+        <div class="embed-responsive embed-responsive-16by9 col-md-6 offset-md-3 col-12">
+          <iframe
+            class="embed-responsive-item "
+            style="height: 100%; padding-top: 5vh"
+            src="https://www.youtube.com/embed/JC9G0axum8I"
+            allowfullscreen="true"
+          ></iframe>
+        </div>
       </div>
     </div>
-  </div>
-  <%-include('./partials/footer.ejs')%>
+    <%- include('./partials/footer.ejs')%>
 
-  <script
-    type="text/javascript"
-    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
-  ></script>
-  <!--Font Awesome script-->
-  <script
-    src="https://kit.fontawesome.com/cc21f63f8e.js"
-    crossorigin="anonymous"
-  ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/cc21f63f8e.js"
+      crossorigin="anonymous"
+    ></script>
 
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
-    crossorigin="anonymous"
-  ></script>
-</body>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/cc21f63f8e.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

@@ -33,7 +33,7 @@
             <%= product.description.substr(0,65) %>...
           </p>
           <div class="d-flex flex-row">
-            <h3 class="mr-2"><span>&#8377;</span><%= product.price %></h3>
+            <h3 class="mr-2"><span class="notranslate">&#8377;</span><%= product.price %></h3>
             <p
               class="starability-result"
               data-rating="<%= (product.ratingSum === 0)?(1):Math.floor(product.ratingSum/product.reviewCount) %>"

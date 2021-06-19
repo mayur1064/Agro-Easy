@@ -38,7 +38,7 @@
             </div>
 
             <div class="d-flex">
-                <h2 class="card-text ml-md-3 mr-auto"><span>&#8377;</span><%= equipment.price %>/hour</h2>
+                <h2 class="card-text ml-md-3 mr-auto"><span class="notranslate">&#8377;</span><%= equipment.price %>/hour</h2>
                 <p class="starability-result mr-3" data-rating="<%= (equipment.ratingSum === 0)?(1):Math.floor(equipment.ratingSum/equipment.reviewCount) %>">
                     Rated: <%=  (equipment.ratingSum = 0)?(1):(equipment.ratingSum/equipment.reviewCount) %> stars
                 </p>
