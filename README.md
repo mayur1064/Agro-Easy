@@ -3,27 +3,28 @@
   <img src="public/Asset/logo2.png" width="500" >
 </p>
 
-## 🌱Agricultural Web Application for University Project Built with Reactjs + Expressjs + Nodejs + MongoDB (MERN)💻
+## Finalist @ STAR Hackathon 2021, Pune. 
+## Built with Nodejs + Expressjs + MongoDB + Bootstrap
 
 ## Features
 
-- ChatBot
-- Seller Profile
-- Add/Delete Products
-- Edit Profile
-- Add/Edit Personal & Company Address
 - Farmer Profile
-- Add/Delete Grains
-- Edit Profile
-- Add/Edit Address
-- Buy Seeds/Pesticides or Rent Machines
-- Buy Loan & Credit Card
-- Consumer
-- Edit Profile
-- Add/Edit Address
-- Buy Materials From Farmer
-- Payapal Gateway
-- Cart Page
-- Change Quantity
-- Remove Product from Cart Page
-and much more
+- Buy Agro Products
+- Rent Farm Equipments and Machines
+- Orders Page
+- Paytm Payment Gateway
+- Create/Delete Farm work
+
+- Supplier Profile
+- Sell Agro Products
+- Lend Farm Equipments
+- Accept Orders
+
+- Farm Worker Profile
+- Apply for Farm Work
+- Edit Work Profile
+- Application status
+
+- ChatBot
+- Multilingual support ( Almost all major Indian Languages)
+- Integrated Maps and much more...
